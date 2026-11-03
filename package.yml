@@ -1,0 +1,18 @@
+package: community.lazycat.app.sonarr
+name: Sonarr
+version: 0.0.0
+description: "TV series manager: watch for new episodes and hand them to your download client."
+min_os_version: "1.5.0"
+homepage: https://sonarr.tv/
+author: Sonarr
+license: GPL-3.0
+permissions:
+  required:
+    - net.internet
+locales:
+  zh:
+    name: Sonarr
+    description: "剧集管理工具：订阅电视剧，自动追新集并交给下载器，整理成规范的媒体库。"
+  en:
+    name: Sonarr
+    description: "TV series manager: watch for new episodes and hand them to your download client."

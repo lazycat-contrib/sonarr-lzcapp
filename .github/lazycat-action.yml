@@ -1,0 +1,38 @@
+version: 1
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: dist/application.lpk
+  target_arch: amd64
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: image
+    image: sonarr
+build:
+  toolchains: []
+  run_buildscript: false
+images:
+  - id: sonarr
+    target: service
+    service: sonarr
+    source: linuxserver/sonarr
+    channel: stable
+    sort: semver
+    # the repo also carries 5.0.0-develop tags; plain x.y.z keeps to the stable line
+    tag_regex: ^[0-9]+[.][0-9]+[.][0-9]+$
+    delivery:
+      mode: mirror
+      require_digest_match: true
+release:
+  use_github_release_notes: true
+  store_changelog_format: plain
+stores:
+  official:
+    enabled: false
+  private:
+    enabled: false
+    name: Sonarr
+    skip_if_version_exists: true
